@@ -1,0 +1,136 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+#root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+a {
+    color: #333;
+}
+
+.header-inner > div {
+    margin: 0;
+}
+
+.post-list, .author-list {
+    margin-bottom: 50px;
+}
+
+.post-list a,
+.author-list a {
+    display: block;
+    box-sizing: border-box;
+    transition: background-color .2s ease;
+}
+
+.post-holder {
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color .2s ease;
+}
+
+.post-holder:hover {
+    background-color:  #f7f1f1;
+}
+
+.author-name a {
+    color: #ee6e73;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.post-item h5 {
+    text-transform: capitalize;
+}
+
+.author-list a:hover {
+    background-color: #f7f1f1;
+}
+
+.author-item {
+    padding: 20px 0 ;
+    box-sizing: border-box;
+}
+
+.author-item h5 {
+    margin: 0;
+}
+
+.back-link {
+    margin-top: 20px;
+}
+
+.author-info {
+    margin: 0;
+    padding: 50px 0;
+    border-bottom: 1px solid #333;
+}
+
+.author-info:last-child {
+    border: none;
+}
+
+.author-info:last-child h1 {
+    margin: 0 0 1.68rem;
+}
+
+.back-button {
+    display: inline-block;
+    position: relative;
+    padding: 15px 35px;
+    background-color: #ee6e73;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.back-button span:first-child {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: left .3s ease;
+    -moz-transition: left .3s ease;
+    -o-transition: left .3s ease;
+    transition: left .3s ease;
+}
+
+.back-button:hover span:first-child {
+    left: 20px;
+}
+
+.back-button span:last-child {
+    margin-left: 5px;
+}
+
+.single-holder {
+    padding: 20px 0 50px;
+    border-bottom: 1px solid #333; 
+}
+
+.single-holder h2 {
+    text-transform: capitalize;
+}
+
+.related-holder {
+    padding: 30px 0 50px;
+}
+
+.related-post a {
+    display: block;
+}
+
+
