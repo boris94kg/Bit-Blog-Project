@@ -1,21 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { fetchPost, fetchRelatedPosts } from '../../../services/postServices';
 import RelatedPosts from '../RelatedPosts/RelatedPosts.js';
 import AuthorName from '../../Authors/AuthorName/AuthorName.js';
 
 class PostSingle extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            post: null,
-            relatedPosts: []
-        }
+    state = {
+        post: null,
+        relatedPosts: []
     }
 
     loadPost() {
         const postId = this.props.match.params.id;
-
         fetchPost(postId)
             .then(post => {
                 this.setState({ post })
@@ -49,16 +44,17 @@ class PostSingle extends React.Component {
     }
 
     render() {
+        const { onClickBack } = this;
         const { post, relatedPosts } = this.state;
         if (!post) {
             return <p>Loading posts</p>
         }
 
         return (
-            <>
+            <Fragment>
                 <div className="row back-link">
                     <div className="col s12">
-                        <div className="back-button" onClick={this.onClickBack}>
+                        <div className="back-button" onClick={onClickBack}>
                             <span className="fas fa-chevron-left"></span>
                             <span>Back</span>
                         </div>
@@ -70,7 +66,7 @@ class PostSingle extends React.Component {
                     <p>{post.body}</p>
                 </div>
                 <RelatedPosts relatedPosts={relatedPosts} />
-            </>
+            </Fragment>
         )
     }
 }

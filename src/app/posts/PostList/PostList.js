@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PostItem from '../PostItem/PostItem.js';
 
 
-const PostList = (props) => {
+const PostList = ({ listOfPosts }) => {
     return (
-        <>
+        <Fragment>
             <div className="post-list center-align row">
-                {props.listOfPosts.map((post, index) => {
+                {listOfPosts.map((post, index) => {
                     return <PostItem key={index} post={post} />
                 })}
 
             </div>
-        </>
+        </Fragment>
     )
 
 }

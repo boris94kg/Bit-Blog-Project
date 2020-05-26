@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import AuthorItem from '../AutorItem/AutorItem.js'
 
-const AuthorsList = (props) => {
+const AuthorsList = ({ listOfAuthors }) => {
     return (
-        <>
+        <Fragment>
             <div className="row author-list center-align">
-
-                {props.listOfAuthors.map((author, index) => {
+                {listOfAuthors.map((author, index) => {
                     return <AuthorItem key={index} author={author} />
                 })}
-
             </div>
-        </>
+        </Fragment >
     )
 }
 

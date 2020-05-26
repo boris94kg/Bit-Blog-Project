@@ -1,16 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PostList from '../posts/PostList/PostList.js';
 import { fetchPosts } from '../../services/postServices.js'
 
 class Home extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            posts: []
-        }
+    state = {
+        posts: []
     }
-
     loadPosts() {
         fetchPosts()
             .then(posts => {
@@ -26,10 +21,10 @@ class Home extends React.Component {
     render() {
         const { posts } = this.state;
         return (
-            <>
+            <Fragment>
                 <h2 className="center-align">Posts</h2>
                 <PostList listOfPosts={posts} />
-            </>
+            </Fragment>
         )
     }
 }

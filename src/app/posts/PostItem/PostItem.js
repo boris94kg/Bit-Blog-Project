@@ -4,19 +4,19 @@ import AuthorName from '../../Authors/AuthorName/AuthorName';
 import Comments from '../../Comments/Comments.js'
 
 
-const PostItem = (props) => {
-    const postID = props.post.id;
+const PostItem = ({ post: { id, title, body, authorId } }) => {
+    const postID = id;
     // console.log(postID);
     return (
         <div className="post-holder">
             <Link to={"/posts/" + postID}>
                 <div className="post-item section">
-                    <h5>{props.post.title}</h5>
-                    <p>{props.post.body}</p>
+                    <h5>{title}</h5>
+                    <p>{body}</p>
                 </div>
 
             </Link>
-            <AuthorName authorId={props.post.authorId} />
+            <AuthorName authorId={authorId} />
             <Comments postId={postID} />
         </div>
     )

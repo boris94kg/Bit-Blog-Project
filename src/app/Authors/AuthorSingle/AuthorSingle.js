@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { fetchAuthor } from '../../../services/authorService.js';
 
 
 class AuthorSingle extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            author: {},
-        }
+    state = {
+        author: {},
     }
 
 
@@ -29,12 +25,13 @@ class AuthorSingle extends React.Component {
     }
 
     render() {
+        const { onClickBack } = this;
         const { author } = this.state;
         return (
-            <>
+            <Fragment>
                 <div className="row back-link">
                     <div className="col s12">
-                        <div className="back-button" onClick={this.onClickBack}>
+                        <div className="back-button" onClick={onClickBack}>
                             <span className="fas fa-chevron-left"></span>
                             <span>Back</span>
                         </div>
@@ -42,7 +39,7 @@ class AuthorSingle extends React.Component {
                 </div>
                 <div className="row author-info">
                     <div className="col s12 m6 l6 xl6">
-                        <img src="https://via.placeholder.com/300" alt="" className="responsive-img"/>
+                        <img src="https://via.placeholder.com/300" alt="" className="responsive-img" />
                     </div>
                     <div className="col s12 m6 l6 xl6">
                         <h1>{author.name}</h1>
@@ -79,7 +76,7 @@ class AuthorSingle extends React.Component {
                         <p>Slogan: {author.companyPhrase}</p>
                     </div>
                 </div>
-            </>
+            </Fragment>
 
         )
     }

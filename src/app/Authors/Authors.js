@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { fetchAuthors } from '../../services/authorService.js'
 import AuthorsList from './AuthorsList/AuthorsList.js';
 
-
 class Authors extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            authors: []
-        }
+    state = {
+        authors: []
     }
+
 
     loadAuthors() {
         fetchAuthors()
@@ -26,10 +22,10 @@ class Authors extends React.Component {
     render() {
         const { authors } = this.state;
         return (
-            <>
+            <Fragment>
                 <h2 className="center-align">Authors ({authors.length})</h2>
                 <AuthorsList listOfAuthors={authors} />
-            </>
+            </Fragment>
         )
     }
 }

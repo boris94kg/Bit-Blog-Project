@@ -4,11 +4,8 @@ import { fetchAuthor } from '../../../services/authorService.js'
 
 
 class AuthorName extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            author: null
-        }
+    state = {
+        author: null
     }
 
     loadAuthorName() {
@@ -24,17 +21,18 @@ class AuthorName extends React.Component {
 
     render() {
 
-        if (!this.state.author) {
+        const { author } = this.state;
+
+        if (!author) {
             return <p>... </p>
         }
 
         return (
             <div className="author-name">
-                <Link to={`/authors/${this.state.author.id}`}>{this.state.author.name}</Link>
+                <Link to={`/authors/${author.id}`}>{author.name}</Link>
             </div>
         )
     }
 }
-
 
 export default AuthorName;

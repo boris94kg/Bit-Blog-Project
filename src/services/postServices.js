@@ -1,36 +1,24 @@
 import Post from '../entities/Post';
-const axios = require('axios');
+import axios from 'axios';
 
-
-const fetchPosts = () => {
-    return axios.get('https://jsonplaceholder.typicode.com/posts?_limit=30')
-        .then(res => res.data)
-        .then(data => {
-            return data.map(post => {
-                return new Post(post);
-            })
-        })
+const fetchPosts = async () => {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=30');
+    const posts = response.data;
+    return posts.map(post => new Post(post))
 }
 
 
-const fetchPost = (postId) => {
-    return axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-        .then(res => res.data)
-        .then(data => {
-            return new Post(data);
-        })
+const fetchPost = async postId => {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+    const singlePost = response.data;
+    return new Post(singlePost);
 }
 
-const fetchRelatedPosts = (postId) => {
-    return axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${postId}`)
-        .then(response => response.data)
-        .then(data => {
-            return data.map(post => {
-                return new Post(post)
-            })
-        })
+const fetchRelatedPosts = async postId => {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${postId}`);
+    const relatedPosts = response.data;
+    return relatedPosts.map(relatedPost => new Post(relatedPost));
+
 }
-
-
 
 export { fetchPosts, fetchPost, fetchRelatedPosts };

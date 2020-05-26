@@ -1,26 +1,16 @@
 import Author from '../entities/Author.js';
-const axios = require('axios');
+import axios from 'axios';
 
-
-const fetchAuthors = () => {
-    return axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.data)
-        .then(data => {
-            return data.map(post => {
-                return new Author(post);
-            })
-        })
+const fetchAuthors = async () => {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+    const authors = response.data;
+    return authors.map(author => new Author(author))
 }
 
-
-
-const fetchAuthor = (authorId) => {
-    return axios.get(`https://jsonplaceholder.typicode.com/users/${authorId}`)
-        .then(res => res.data)
-        .then(data => {
-            return new Author(data);
-        })
+const fetchAuthor = async authorId => {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${authorId}`);
+    const singleAuthor = response.data;
+    return new Author(singleAuthor);
 }
 
-
-export { fetchAuthors, fetchAuthor }
+export { fetchAuthors, fetchAuthor };

@@ -2,12 +2,8 @@ import React from 'react';
 import { fetchComment } from '../../services/commentsService.js';
 
 class Comments extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            commentCount: null
-        }
+    state = {
+        commentCount: null
     }
 
     loadComments() {
@@ -15,7 +11,6 @@ class Comments extends React.Component {
             .then(commentCount => {
                 return this.setState({ commentCount })
             })
-
     }
 
     componentDidMount() {
