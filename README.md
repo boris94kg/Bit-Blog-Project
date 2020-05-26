@@ -3,6 +3,8 @@
 Simple React App where user can see posts and authors. Click on single post user gets all posts from one author. 
 Click on author user gets information about that author.
 
+Live App at: https://bit-authors-project.netlify.app/
+
 ---------------------------------------------------------------------------------------
 
 ## Stack
